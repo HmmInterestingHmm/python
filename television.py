@@ -1,16 +1,28 @@
 class Television:
+    """
+    A class to represent a television.
+    """
+
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """
+        Method to set default values for television.
+        """
+
         self.__status = False
         self.__muted = False
         self.__volume = Television.MIN_VOLUME
         self.__channel = Television.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> bool:
+        """
+        Method to return power status of television.
+        :return: Television power status.
+        """
         if self.__status:
             self.__status = False
         else:
@@ -18,7 +30,11 @@ class Television:
 
         return self.__status
 
-    def mute(self):
+    def mute(self) -> bool:
+        """
+        Method to return mute status of television.
+        :return: Television mute status.
+        """
         if self.__status:
             if self.__muted:
                 self.__muted = False
@@ -27,7 +43,11 @@ class Television:
 
         return self.__muted
 
-    def channel_up(self):
+    def channel_up(self) -> int:
+        """
+        Method to increase channel of television.
+        :return: Television channel.
+        """
         if not self.__status:
             return self.__channel
 
@@ -37,7 +57,11 @@ class Television:
 
         return self.__channel
 
-    def channel_down(self):
+    def channel_down(self) -> int:
+        """
+        Method to decrease channel of television.
+        :return: Television channel.
+        """
         if not self.__status:
             return self.__channel
 
@@ -47,7 +71,11 @@ class Television:
 
         return self.__channel
 
-    def volume_up(self):
+    def volume_up(self) -> int:
+        """
+        Method to increase volume of television.
+        :return: Television volume.
+        """
         if self.__status:
             if self.__muted:
                 self.__muted = False
@@ -58,7 +86,11 @@ class Television:
 
         return self.__volume
 
-    def volume_down(self):
+    def volume_down(self) -> int:
+        """
+        Method to decrease volume of television.
+        :return: Television volume.
+        """
         if self.__status:
             if self.__muted:
                 self.__muted = False
@@ -69,7 +101,11 @@ class Television:
 
         return self.__volume
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Method to return string representation of television.
+        :return: Description of television.
+        """
         if self.__muted:
             return f"Power = [{self.__status}], Channel = [{self.__channel}], Volume = [0]"
         else:
